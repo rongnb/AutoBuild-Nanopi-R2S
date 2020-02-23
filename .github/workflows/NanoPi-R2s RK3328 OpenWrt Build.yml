@@ -22,7 +22,7 @@ on:
     
 #环境变量：SSH_ACTIONS设置为true则会在执行完Costom Configure File后显示一个SSH的链接，可用终端或者web登录到vps进行配置
 env:
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -89,10 +89,10 @@ jobs:
           sed -i 's/https:\/\/github.com\/friendlyarm\/friendlywrt_project_luci^bb021b4b9097ad332ab40bce2a1c239d9fcf225b/https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
           sed -i 's/https:\/\/git.openwrt.org\/feed\/packages.git^54266c99b2a2e37a4c01b02ae74346874db7003c/https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default              
       
-      - name: Update Target.mk
-        run: |
-          cd friendlywrt-rk3328/friendlywrt/include 
-          sed -i 's/dnsmasq /dnsmasq-full default-settings luci /' target.mk  
+      #- name: Update Target.mk
+       # run: |
+        #  cd friendlywrt-rk3328/friendlywrt/include 
+         # sed -i 's/dnsmasq /dnsmasq-full default-settings luci /' target.mk  
       
       - name: Update Feeds
         run: |
